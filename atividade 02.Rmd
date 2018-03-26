@@ -1,0 +1,141 @@
+```{r}
+###########################
+# Projeto Integrador
+# Exercício 02
+# Prof. Neylson Crepalde
+# Ester Martins
+###########################
+
+# 1 - Crie 4 vetores de tamanha 10. Esss vetores devem ser
+# nomeados com apenas uma letra minúscula cada um.
+
+a <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+b <- c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)
+c <- c(1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+d <- c(5, 10, 15, 20, 25, 30, 35, 40, 45, 50)
+
+############################
+
+# 2 - Exeute a soma dos vetores, a subtração, multiplicação
+# e divisão. Apresente os resultados.
+
+a + b + c + d #soma dos vetores
+[1]  9 19 29 39 49 59 69 79 89 99
+
+a - b - c - d #subtrção dos vetores
+[1]  -7 -15 -23 -31 -39 -47 -55 -63 -71 -79
+
+a * b * c * d #multiplicação dos vetores
+[1]     10    240   1350   4480  11250  23760  44590
+[8]  76800 123930 190000
+
+a / b / c / d #divisão dos vetores
+[1] 0.1000000000 0.0166666667 0.0066666667
+[4] 0.0035714286 0.0022222222 0.0015151515
+[7] 0.0010989011 0.0008333333 0.0006535948
+[10] 0.0005263158
+
+##########################
+
+# 3 - Execute a soma da raiz quadrada dos dois primeiros  
+# vetores com a divisão da quarta potência dos dois
+# últimos vetores.
+
+sqrt(a) + sqrt(b) + (c^4 / d^4) 
+[1] 2.415814 3.422314 4.193886 4.843433 5.415142
+[6] 5.931667 6.406441 6.848203 7.263009 7.655265
+
+##########################
+
+# 4 - Crie duas matrizes de tamanho 10X10 com números que
+# assumem casas decimais.
+
+X <- matrix(0.1:9.1, ncol = 10, nrow = 10)
+Y <- matrix(1.1:10.1, ncol = 10, nrow = 10)
+# Tive um pouco de dificuldade para entender a resolução da matriz
+
+##########################
+
+# 5 - Multiplique as matrizes por 10. Divida aS matrizes 
+# por 3. Multiplique as duas matrizes
+
+print(X)
+print(Y)
+X*10
+Y*10
+X/3
+Y/3
+X%%Y
+
+##############################
+
+# 6 - Monte um banco de dados com os nomes de todos os
+#seus colegas da aula de Programação Funcional e Orientada
+# a Objetos. Coloque no banco de dados a idade de cada um,
+#o curso que faz, o time de futebol e o número de horas
+#gastas fazendo exercícios no R (para essa variável, use
+#números com 2 casas decimais). Exiba o banco no console.
+
+nomes <- c("Ester", "Warley", "Juliany", "Ariel", "Ana", "Larissa")
+
+idade <- c(18L, 22L, 25L, 26L, 19L, 29L)
+
+curso <- c("cincd", "cincd", "cincd", "bioinf", "bioinf", "bioinf")
+
+time <- c("cruzeiro", "cruzeiro", "cruzeiro", "atletico", "cruzeiro", "america")
+
+estudo <- c(3.1, 5.4, 4.3, 1.2, 2.9, 3.5)
+
+colegas <- data.frame(nomes, idade, curso, time, estudo, stringsAsFactors = F)
+colegas
+
+#########################
+
+# 7 - Com um comando, exiba o banco de dados numa nova
+# tela
+
+View(colegas)
+
+###########################
+
+# 8 - Confira várias informações sobre o banco de 
+# dados(tamanhos, classes das variáveis, nomes das 
+# variáveis) usando apenas um comando.
+
+str(colegas)
+'data.frame':	6 obs. of  5 variables:
+ $ nomes : chr  "Ester" "Warley" "Juliany" "Ariel" ...
+ $ idade : int  18 22 25 26 19 29
+ $ curso : chr  "cincd" "cincd" "cincd" "bioinf" ...
+ $ time  : chr  "cruzeiro" "cruzeiro" "cruzeiro" "atletico" ...
+ $ estudo: num  3.1 5.4 4.3 1.2 2.9 3.5
+
+##############################
+
+# 9 - Usando um comando transforme as variáveis curso e 
+# time de futebol em *factor*
+
+colegas$curso <- as.factor(colegas$curso)
+colegas$time <- as.factor(colegas$time)
+
+##########################
+
+# 10 - Acrescente, no final do banco de dados, mais uma 
+# linha com as informações de todas as variáveis para o 
+# professor.
+
+rbind(colegas, variaveis = c(sapply(colegas, class)))
+
+#############################
+
+# 11 - Crie uma lista com todos os objetos que você criou
+# neste exercício. Exiba a lista. Apresente a classe da 
+# lista
+
+objetos <- list(a, b, c, d, X, Y, nomes, idade, curso, time, estudo)
+View(objetos)
+class(objetos)
+
+##############################
+```
+
